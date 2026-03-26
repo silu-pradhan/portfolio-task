@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a href="#home" class="brand">
+        <span class="brand-mark">SP</span>
+        <span id="brandName">Santanu Pradhan</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav" id="siteNav">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a href="login.html" class="nav-admin">Admin</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section interactive-section" id="home">
+        <div class="hero-copy reveal">
+          <p class="eyebrow" id="heroTag">Creative Developer</p>
+          <h1 id="heroTitle">Crafting polished digital experiences for modern brands.</h1>
+          <p class="hero-text" id="heroDescription">
+            I design and build responsive web experiences with thoughtful motion, strong visual systems, and clean front-end architecture.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+          </div>
+          <div class="hero-metrics" id="heroStats"></div>
+        </div>
+        <div class="hero-card reveal">
+          <div class="orb orb-one"></div>
+          <div class="orb orb-two"></div>
+          <div class="tech-badge badge-one">Frontend</div>
+          <div class="tech-badge badge-two">Backend</div>
+          <div class="tech-badge badge-three">Responsive</div>
+          <div class="spotlight-card">
+            <p class="card-label">About</p>
+            <h2 id="aboutHeading">Building detail-driven interfaces with business impact.</h2>
+            <p id="aboutText">
+              My focus is on intuitive interactions, responsive layouts, accessible interfaces, and maintainable code that teams can scale confidently.
+            </p>
+            <div class="contact-quick">
+              <span id="quickEmail">hello@example.com</span>
+              <span id="quickLocation">Bhubaneswar, India</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section projects-section interactive-section" id="projects">
+        <div class="section-header reveal">
+          <p class="eyebrow">Selected Work</p>
+          <h2>Projects that combine design clarity with strong execution.</h2>
+        </div>
+        <div class="projects-grid" id="projectsGrid"></div>
+      </section>
+
+      <section class="section skills-section interactive-section" id="skills">
+        <div class="section-header reveal">
+          <p class="eyebrow">Capabilities</p>
+          <h2>Technical skills built for fast delivery and dependable quality.</h2>
+        </div>
+        <div class="skills-layout">
+          <div class="skills-cloud reveal" id="skillsGrid"></div>
+          <div class="skills-panel reveal">
+            <p class="panel-label">Why teams work with me</p>
+            <ul class="strength-list" id="strengthList"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section interactive-section" id="contact">
+        <div class="section-header reveal">
+          <p class="eyebrow">Let’s Build</p>
+          <h2>Have a project in mind? Send a message and it appears in the admin panel.</h2>
+        </div>
+        <div class="contact-layout">
+          <div class="contact-card reveal">
+            <h3>Contact Details</h3>
+            <div class="contact-info" id="contactInfo"></div>
+            <div class="social-links" id="socialLinks"></div>
+          </div>
+          <form class="contact-form reveal" id="contactForm" novalidate>
+            <div class="form-grid">
+              <label>
+                <span>Name</span>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+              </label>
+            </div>
+            <label>
+              <span>Subject</span>
+              <input type="text" id="subject" name="subject" placeholder="Project discussion" required>
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea id="message" name="message" rows="6" placeholder="Tell me about your idea..." required></textarea>
+            </label>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <p class="form-status" id="formStatus"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <main class="login-shell">
+    <section class="login-panel">
+      <div class="login-copy">
+        <p class="eyebrow">Secure Access</p>
+        <h1>Admin Login</h1>
+        <p>Enter the correct username and password to access the portfolio admin panel.</p>
+        <a href="index.html" class="back-link">Back to Portfolio</a>
+      </div>
+
+      <form id="loginForm" class="login-form" novalidate>
+        <label>
+          <span>Username</span>
+          <input type="text" id="username" name="username" placeholder="Enter username" required>
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" id="password" name="password" placeholder="Enter password" required>
+        </label>
+        <button type="submit" class="login-btn">Login to Admin</button>
+        <p class="login-status" id="loginStatus"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/auth.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
