@@ -49,6 +49,21 @@ body::before {
   pointer-events: none;
 }
 
+body::after {
+  content: "";
+  position: fixed;
+  inset: auto;
+  top: 12%;
+  left: -120px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(86, 209, 255, 0.14), transparent 68%);
+  filter: blur(10px);
+  animation: ambientFloatOne 14s ease-in-out infinite;
+  pointer-events: none;
+}
+
 body.is-ready .hero-copy > *,
 body.is-ready .hero-card,
 body.is-ready .topbar {
@@ -71,9 +86,38 @@ a {
 }
 
 .site-shell {
+  position: relative;
   width: min(calc(100% - 32px), var(--max-width));
   margin: 0 auto;
   padding-bottom: 72px;
+}
+
+.site-shell::before,
+.site-shell::after {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(8px);
+}
+
+.site-shell::before {
+  right: -90px;
+  top: 24%;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(255, 173, 91, 0.12), transparent 68%);
+  animation: ambientFloatTwo 17s ease-in-out infinite;
+}
+
+.site-shell::after {
+  left: 44%;
+  bottom: 10%;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(107, 114, 255, 0.1), transparent 68%);
+  animation: ambientFloatThree 20s ease-in-out infinite;
 }
 
 .section {

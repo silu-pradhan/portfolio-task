@@ -71,3 +71,30 @@ body.is-ready .hero-card {
     transform: translateY(-5px);
   }
 }
+
+@keyframes ambientFloatOne {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(55px, 28px, 0) scale(1.08);
+  }
+}
+
+@keyframes ambientFloatTwo {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-42px, 48px, 0) scale(1.1);
+  }
+}
+
+@keyframes ambientFloatThree {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(24px, -36px, 0) scale(1.06);
+  }
+}

@@ -16,8 +16,7 @@
       experience: "Full Stack Projects",
       socials: {
         LinkedIn: "https://www.linkedin.com/",
-        GitHub: "https://github.com/",
-        Behance: "https://www.behance.net/"
+        GitHub: "https://github.com/"
       }
     },
     strengths: [

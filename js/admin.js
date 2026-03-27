@@ -17,8 +17,7 @@
     aboutHeading: document.getElementById("adminAboutHeading"),
     aboutText: document.getElementById("adminAboutText"),
     linkedIn: document.getElementById("adminLinkedIn"),
-    gitHub: document.getElementById("adminGitHub"),
-    behance: document.getElementById("adminBehance")
+    gitHub: document.getElementById("adminGitHub")
   };
 
   const projectEditor = document.getElementById("projectEditor");
@@ -49,7 +48,6 @@
     profileFields.aboutText.value = data.profile.aboutText;
     profileFields.linkedIn.value = data.profile.socials.LinkedIn || "";
     profileFields.gitHub.value = data.profile.socials.GitHub || "";
-    profileFields.behance.value = data.profile.socials.Behance || "";
   }
 
   function renderProjects() {
@@ -123,8 +121,7 @@
       aboutText: profileFields.aboutText.value.trim(),
       socials: {
         LinkedIn: profileFields.linkedIn.value.trim(),
-        GitHub: profileFields.gitHub.value.trim(),
-        Behance: profileFields.behance.value.trim()
+        GitHub: profileFields.gitHub.value.trim()
       }
     };
 
