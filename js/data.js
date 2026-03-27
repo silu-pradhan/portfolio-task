@@ -2,11 +2,12 @@
   const STORAGE_KEY = "portfolio-pro-data";
 
   const defaultData = {
+    version: 2,
     profile: {
       name: "Santanu Pradhan",
       roleTag: "Full Stack Developer",
-      heroTitle: "Santanu Pradhan builds modern full stack products with clean design and reliable performance.",
-      heroDescription: "I create responsive interfaces and scalable web solutions with strong front-end polish, practical backend thinking, and a focus on real business outcomes.",
+      heroTitle: "Santanu Pradhan",
+      heroDescription: "Full Stack Developer focused on responsive interfaces, scalable web solutions, and clean user experiences that feel professional across every device.",
       aboutHeading: "Full stack development with strong visual execution.",
       aboutText: "I work across the complete web stack to turn ideas into polished digital products, combining user-friendly interfaces, structured code, and smooth interactions that feel professional on every device.",
       email: "hello@santanu.dev",
@@ -96,7 +97,25 @@
     }
 
     try {
-      return deepMerge(clone(defaultData), JSON.parse(raw));
+      const parsed = JSON.parse(raw);
+      const merged = deepMerge(clone(defaultData), parsed);
+
+      if (parsed.version !== defaultData.version) {
+        merged.version = defaultData.version;
+        merged.profile = {
+          ...merged.profile,
+          name: defaultData.profile.name,
+          roleTag: defaultData.profile.roleTag,
+          heroTitle: defaultData.profile.heroTitle,
+          heroDescription: defaultData.profile.heroDescription,
+          aboutHeading: defaultData.profile.aboutHeading,
+          aboutText: defaultData.profile.aboutText,
+          experience: defaultData.profile.experience
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+      }
+
+      return merged;
     } catch (error) {
       const fresh = clone(defaultData);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(fresh));

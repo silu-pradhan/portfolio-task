@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
   <div class="site-shell">
     <header class="topbar">
       <a href="#home" class="brand">
@@ -33,6 +35,7 @@
       <section class="hero section interactive-section" id="home">
         <div class="hero-copy reveal">
           <p class="eyebrow" id="heroTag">Creative Developer</p>
+          <p class="hero-kicker">Portfolio</p>
           <h1 id="heroTitle">Crafting polished digital experiences for modern brands.</h1>
           <p class="hero-text" id="heroDescription">
             I design and build responsive web experiences with thoughtful motion, strong visual systems, and clean front-end architecture.
@@ -44,45 +47,39 @@
           <div class="hero-metrics" id="heroStats"></div>
         </div>
         <div class="hero-card reveal">
-          <div class="orb orb-one"></div>
-          <div class="orb orb-two"></div>
-          <div class="tech-badge badge-one">Frontend</div>
-          <div class="tech-badge badge-two">Backend</div>
-          <div class="tech-badge badge-three">Responsive</div>
-          <div class="spotlight-card">
-            <p class="card-label">About</p>
-            <h2 id="aboutHeading">Building detail-driven interfaces with business impact.</h2>
-            <p id="aboutText">
-              My focus is on intuitive interactions, responsive layouts, accessible interfaces, and maintainable code that teams can scale confidently.
-            </p>
-            <div class="contact-quick">
-              <span id="quickEmail">hello@example.com</span>
-              <span id="quickLocation">Bhubaneswar, India</span>
+          <div class="profile-card">
+            <div class="profile-image-wrap">
+              <img src="assets/profile-photo.jpeg" alt="Portrait of Santanu Pradhan" class="profile-image" id="profileImage">
+            </div>
+            <div class="profile-meta">
+              <p class="card-label">Profile</p>
+              <h2 id="aboutHeading">Building detail-driven interfaces with business impact.</h2>
+              <p id="aboutText">
+                My focus is on intuitive interactions, responsive layouts, accessible interfaces, and maintainable code that teams can scale confidently.
+              </p>
+              <div class="contact-quick">
+                <span id="quickEmail">hello@example.com</span>
+                <span id="quickLocation">Bhubaneswar, India</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section projects-section interactive-section" id="projects">
-        <div class="section-header reveal">
-          <p class="eyebrow">Selected Work</p>
-          <h2>Projects that combine design clarity with strong execution.</h2>
-        </div>
-        <div class="projects-grid" id="projectsGrid"></div>
-      </section>
-
       <section class="section skills-section interactive-section" id="skills">
         <div class="section-header reveal">
           <p class="eyebrow">Capabilities</p>
-          <h2>Technical skills built for fast delivery and dependable quality.</h2>
+          <h2>Skills presented with clarity, structure, and practical experience.</h2>
         </div>
-        <div class="skills-layout">
-          <div class="skills-cloud reveal" id="skillsGrid"></div>
-          <div class="skills-panel reveal">
-            <p class="panel-label">Why teams work with me</p>
-            <ul class="strength-list" id="strengthList"></ul>
-          </div>
+        <div class="skills-grid reveal" id="skillsGrid"></div>
+      </section>
+
+      <section class="section projects-section interactive-section" id="projects">
+        <div class="section-header reveal">
+          <p class="eyebrow">Selected Work</p>
+          <h2>Projects that show both technical depth and presentation quality.</h2>
         </div>
+        <div class="projects-grid" id="projectsGrid"></div>
       </section>
 
       <section class="section contact-section interactive-section" id="contact">
