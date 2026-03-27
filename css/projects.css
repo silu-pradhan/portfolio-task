@@ -1,0 +1,115 @@
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right, rgba(29, 78, 216, 0.12), transparent 34%),
+    radial-gradient(circle at bottom left, rgba(230, 138, 77, 0.1), transparent 28%),
+    linear-gradient(140deg, rgba(255, 255, 255, 0.08), transparent 50%);
+  opacity: 0.9;
+  transition: transform 0.45s ease, opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: -35% auto auto -10%;
+  width: 70%;
+  height: 170%;
+  background: linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.34) 48%, transparent 72%);
+  transform: translateX(-130%) rotate(16deg);
+  transition: transform 0.75s ease;
+  pointer-events: none;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(29, 78, 216, 0.2);
+  box-shadow: 0 20px 36px rgba(29, 78, 216, 0.1);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.project-card:hover::after {
+  transform: translateX(190%) rotate(16deg);
+}
+
+.project-top,
+.project-copy,
+.project-tags,
+.project-link,
+.project-card h3 {
+  position: relative;
+  z-index: 1;
+}
+
+.project-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.project-index {
+  font-family: "Syne", sans-serif;
+  font-size: 0.95rem;
+  color: var(--accent);
+}
+
+.project-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.45rem;
+}
+
+.project-copy {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0;
+}
+
+.project-tag,
+.contact-pill {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f6f8fd;
+}
+
+.project-link {
+  font-weight: 700;
+  color: #7edfff;
+}
+
+.project-card h3,
+.project-index {
+  color: #f6f8fd;
+}

@@ -1,0 +1,105 @@
+@media (max-width: 1024px) {
+  .hero,
+  .contact-layout,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 46px;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-shell {
+    width: min(calc(100% - 20px), var(--max-width));
+  }
+
+  .topbar {
+    padding: 14px 16px;
+    border-radius: 26px;
+  }
+
+  .menu-toggle {
+    display: inline-block;
+  }
+
+  .nav {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    padding: 14px;
+    border-radius: 24px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(18px);
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .hero h1,
+  .section-header h2 {
+    max-width: 100%;
+  }
+
+  .hero-metrics,
+  .skills-grid,
+  .projects-grid,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card {
+    min-height: auto;
+    padding: 16px;
+  }
+
+  .section {
+    padding-top: 82px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interactive-section::before,
+  .interactive-section::after,
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+
+  .reveal,
+  .profile-image,
+  .btn,
+  .skill-card,
+  .project-card,
+  .social-link,
+  .topbar,
+  .hero-copy > *,
+  .hero-card {
+    transition: none;
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  body.cursor-enabled,
+  body.cursor-enabled a,
+  body.cursor-enabled button,
+  body.cursor-enabled input,
+  body.cursor-enabled textarea,
+  body.cursor-enabled .skill-card,
+  body.cursor-enabled .project-card {
+    cursor: auto;
+  }
+}
