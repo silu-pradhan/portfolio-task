@@ -29,11 +29,6 @@ export function renderPortfolio(dom, data, onRendered) {
   dom.heroTag.textContent = profile.roleTag;
   dom.heroTitle.textContent = profile.heroTitle;
   dom.heroDescription.textContent = profile.heroDescription;
-  dom.aboutHeading.textContent = profile.aboutHeading;
-  dom.aboutText.textContent = profile.aboutText;
-  dom.quickEmail.textContent = profile.email;
-  dom.quickLocation.textContent = profile.location;
-
   dom.heroStats.innerHTML = stats.map((item) => `
     <article class="metric-card">
       <span class="metric-value">${escapeHtml(item.value)}</span>
