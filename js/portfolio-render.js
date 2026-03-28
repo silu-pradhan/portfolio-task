@@ -26,13 +26,17 @@
   }
 
   function renderPortfolio(dom, data, onRendered) {
-  const { profile, stats, projects, skills } = data;
+  const { profile, strengths = [], projects = [], skills = [] } = data;
+  const heroHighlights = strengths.slice(0, 3).map((item, index) => ({
+    value: `0${index + 1}`,
+    label: item
+  }));
 
   dom.brandName.textContent = profile.name;
   dom.heroTag.textContent = profile.roleTag;
   dom.heroTitle.textContent = profile.heroTitle;
   dom.heroDescription.textContent = profile.heroDescription;
-  dom.heroStats.innerHTML = stats.map((item) => `
+  dom.heroStats.innerHTML = heroHighlights.map((item) => `
     <article class="metric-card">
       <span class="metric-value">${escapeHtml(item.value)}</span>
       <span class="metric-label">${escapeHtml(item.label)}</span>

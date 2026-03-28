@@ -13,6 +13,11 @@
   background: rgba(9, 19, 34, 0.78);
   backdrop-filter: blur(18px);
   box-shadow: var(--shadow);
+  opacity: 1;
+  transform: none;
+}
+
+body.animations-enabled .topbar {
   opacity: 0;
   transform: translateY(-18px);
 }

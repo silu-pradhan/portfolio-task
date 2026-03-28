@@ -2,6 +2,7 @@
   window.PortfolioModules = window.PortfolioModules || {};
 
   function initPortfolioApp() {
+    document.body.classList.add("animations-enabled");
     const store = window.PortfolioStore;
     const data = store.getData();
     const dom = window.PortfolioModules.getPortfolioDom();

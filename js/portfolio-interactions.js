@@ -3,6 +3,10 @@
   const validateForm = window.PortfolioModules.validateForm;
 
   function initNavigation(dom) {
+    if (!dom.menuToggle || !dom.siteNav) {
+      return;
+    }
+
     dom.menuToggle.addEventListener("click", () => {
       dom.siteNav.classList.toggle("open");
     });
@@ -15,6 +19,10 @@
   }
 
   function initContactForm(dom, store) {
+    if (!dom.form || !dom.formStatus) {
+      return;
+    }
+
     dom.form.addEventListener("submit", (event) => {
       event.preventDefault();
 
@@ -147,6 +155,10 @@
   function initReveal() {
     const revealItems = Array.from(document.querySelectorAll(".reveal"));
 
+    if (!revealItems.length) {
+      return;
+    }
+
   revealItems.forEach((item, index) => {
     const siblings = item.parentElement
       ? Array.from(item.parentElement.children).filter((child) => child.classList.contains("reveal"))
@@ -156,6 +168,11 @@
     item.style.setProperty("--reveal-delay", `${delay}s`);
     item.style.setProperty("--reveal-order", `${index}`);
   });
+
+  if (typeof window.IntersectionObserver !== "function") {
+    revealItems.forEach((item) => item.classList.add("visible"));
+    return;
+  }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

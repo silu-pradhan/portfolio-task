@@ -30,6 +30,11 @@
 }
 
 .hero-copy > * {
+  opacity: 1;
+  transform: none;
+}
+
+body.animations-enabled .hero-copy > * {
   opacity: 0;
   transform: translateY(28px);
 }
@@ -75,6 +80,11 @@
 
 .hero-card {
   min-height: 560px;
+  opacity: 1;
+  transform: none;
+}
+
+body.animations-enabled .hero-card {
   opacity: 0;
   transform: translateY(34px) scale(0.96);
 }

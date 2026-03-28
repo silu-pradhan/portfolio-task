@@ -64,9 +64,9 @@ body::after {
   pointer-events: none;
 }
 
-body.is-ready .hero-copy > *,
-body.is-ready .hero-card,
-body.is-ready .topbar {
+body.animations-enabled.is-ready .hero-copy > *,
+body.animations-enabled.is-ready .hero-card,
+body.animations-enabled.is-ready .topbar {
   animation-fill-mode: both;
 }
 
@@ -222,6 +222,11 @@ a {
 }
 
 .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+body.animations-enabled .reveal {
   opacity: 0;
   transform: translateY(32px);
   transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);

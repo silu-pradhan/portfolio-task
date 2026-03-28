@@ -1,5 +1,6 @@
 (function () {
   const STORAGE_KEY = "portfolio-pro-data";
+  let memoryStore = "";
 
   const defaultData = {
     version: 4,
@@ -66,6 +67,34 @@
     return JSON.parse(JSON.stringify(value));
   }
 
+  function storageAvailable() {
+    try {
+      const testKey = "__portfolio_test__";
+      window.localStorage.setItem(testKey, testKey);
+      window.localStorage.removeItem(testKey);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function readStorage() {
+    if (storageAvailable()) {
+      return window.localStorage.getItem(STORAGE_KEY);
+    }
+
+    return memoryStore || null;
+  }
+
+  function writeStorage(value) {
+    if (storageAvailable()) {
+      window.localStorage.setItem(STORAGE_KEY, value);
+      return;
+    }
+
+    memoryStore = value;
+  }
+
   function deepMerge(base, override) {
     if (Array.isArray(base) || Array.isArray(override)) {
       return override !== undefined ? override : base;
@@ -83,10 +112,10 @@
   }
 
   function getData() {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = readStorage();
     if (!raw) {
       const fresh = clone(defaultData);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(fresh));
+      writeStorage(JSON.stringify(fresh));
       return fresh;
     }
 
@@ -112,24 +141,24 @@
         };
         merged.skills = clone(defaultData.skills);
         merged.projects = clone(defaultData.projects);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+        writeStorage(JSON.stringify(merged));
       }
 
       return merged;
     } catch (error) {
       const fresh = clone(defaultData);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(fresh));
+      writeStorage(JSON.stringify(fresh));
       return fresh;
     }
   }
 
   function saveData(data) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    writeStorage(JSON.stringify(data));
   }
 
   function resetData() {
     const fresh = clone(defaultData);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(fresh));
+    writeStorage(JSON.stringify(fresh));
     return fresh;
   }
 
