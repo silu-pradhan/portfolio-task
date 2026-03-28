@@ -1,3 +1,5 @@
-import { initPortfolioApp } from "./portfolio-app.js";
-
-initPortfolioApp();
+(function () {
+  if (window.PortfolioModules && typeof window.PortfolioModules.initPortfolioApp === "function") {
+    window.PortfolioModules.initPortfolioApp();
+  }
+})();

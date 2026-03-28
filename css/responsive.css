@@ -7,7 +7,20 @@
 
   .hero {
     min-height: auto;
+    gap: 30px;
     padding-top: 46px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-card {
+    min-height: auto;
+  }
+
+  .profile-image-wrap {
+    min-height: 320px;
   }
 }
 
@@ -17,12 +30,28 @@
   }
 
   .topbar {
+    position: sticky;
     padding: 14px 16px;
+    gap: 12px;
     border-radius: 26px;
+  }
+
+  .brand {
+    min-width: 0;
+    font-size: 0.94rem;
+  }
+
+  .brand span:last-child {
+    display: inline-block;
+    max-width: 145px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .menu-toggle {
     display: inline-flex;
+    flex-shrink: 0;
   }
 
   .nav {
@@ -57,9 +86,25 @@
     color: #ffffff;
   }
 
+  .hero {
+    gap: 24px;
+  }
+
   .hero h1,
   .section-header h2 {
     max-width: 100%;
+  }
+
+  .hero-card {
+    min-height: auto;
+  }
+
+  .profile-card {
+    padding: 16px;
+  }
+
+  .profile-image-wrap {
+    min-height: 260px;
   }
 
   .hero-metrics,
@@ -69,6 +114,9 @@
     grid-template-columns: 1fr;
   }
 
+  .project-card,
+  .contact-card,
+  .contact-form,
   .skill-card {
     min-height: auto;
     padding: 16px;
@@ -76,6 +124,10 @@
 
   .section {
     padding-top: 82px;
+  }
+
+  .section-header {
+    margin-bottom: 20px;
   }
 
   .hero-actions {

@@ -1,20 +1,22 @@
-import { validateForm } from "./portfolio-render.js";
+(function () {
+  window.PortfolioModules = window.PortfolioModules || {};
+  const validateForm = window.PortfolioModules.validateForm;
 
-export function initNavigation(dom) {
-  dom.menuToggle.addEventListener("click", () => {
-    dom.siteNav.classList.toggle("open");
-  });
-
-  dom.siteNav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      dom.siteNav.classList.remove("open");
+  function initNavigation(dom) {
+    dom.menuToggle.addEventListener("click", () => {
+      dom.siteNav.classList.toggle("open");
     });
-  });
-}
 
-export function initContactForm(dom, store) {
-  dom.form.addEventListener("submit", (event) => {
-    event.preventDefault();
+    dom.siteNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        dom.siteNav.classList.remove("open");
+      });
+    });
+  }
+
+  function initContactForm(dom, store) {
+    dom.form.addEventListener("submit", (event) => {
+      event.preventDefault();
 
     const formData = new FormData(dom.form);
     const payload = {
@@ -45,37 +47,37 @@ export function initContactForm(dom, store) {
     dom.form.reset();
     dom.formStatus.textContent = "Your email app has been opened with the message addressed to Santanu Pradhan.";
     dom.formStatus.classList.add("success");
-  });
-}
-
-export function initSectionPointerEffects() {
-  document.querySelectorAll(".interactive-section").forEach((section) => {
-    section.addEventListener("pointermove", (event) => {
-      const rect = section.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width) * 100;
-      const y = ((event.clientY - rect.top) / rect.height) * 100;
-
-      section.style.setProperty("--mouse-x", `${x}%`);
-      section.style.setProperty("--mouse-y", `${y}%`);
-      section.classList.add("is-active");
     });
-
-    section.addEventListener("pointerenter", () => {
-      section.classList.add("is-active");
-    });
-
-    section.addEventListener("pointerleave", () => {
-      section.classList.remove("is-active");
-      section.style.setProperty("--mouse-x", "50%");
-      section.style.setProperty("--mouse-y", "50%");
-    });
-  });
-}
-
-export function initCustomCursor(dom) {
-  if (!dom.cursorDot || !dom.cursorRing || window.matchMedia("(pointer: coarse)").matches) {
-    return;
   }
+
+  function initSectionPointerEffects() {
+    document.querySelectorAll(".interactive-section").forEach((section) => {
+      section.addEventListener("pointermove", (event) => {
+        const rect = section.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+        section.style.setProperty("--mouse-x", `${x}%`);
+        section.style.setProperty("--mouse-y", `${y}%`);
+        section.classList.add("is-active");
+      });
+
+      section.addEventListener("pointerenter", () => {
+        section.classList.add("is-active");
+      });
+
+      section.addEventListener("pointerleave", () => {
+        section.classList.remove("is-active");
+        section.style.setProperty("--mouse-x", "50%");
+        section.style.setProperty("--mouse-y", "50%");
+      });
+    });
+  }
+
+  function initCustomCursor(dom) {
+    if (!dom.cursorDot || !dom.cursorRing || window.matchMedia("(pointer: coarse)").matches) {
+      return;
+    }
 
   let mouseX = 0;
   let mouseY = 0;
@@ -139,11 +141,11 @@ export function initCustomCursor(dom) {
     requestAnimationFrame(animateRing);
   }
 
-  animateRing();
-}
+    animateRing();
+  }
 
-export function initReveal() {
-  const revealItems = Array.from(document.querySelectorAll(".reveal"));
+  function initReveal() {
+    const revealItems = Array.from(document.querySelectorAll(".reveal"));
 
   revealItems.forEach((item, index) => {
     const siblings = item.parentElement
@@ -167,11 +169,19 @@ export function initReveal() {
     rootMargin: "0px 0px -8% 0px"
   });
 
-  revealItems.forEach((item) => observer.observe(item));
-}
+    revealItems.forEach((item) => observer.observe(item));
+  }
 
-export function initLoadAnimation() {
-  window.addEventListener("load", () => {
-    document.body.classList.add("is-ready");
-  });
-}
+  function initLoadAnimation() {
+    window.addEventListener("load", () => {
+      document.body.classList.add("is-ready");
+    });
+  }
+
+  window.PortfolioModules.initNavigation = initNavigation;
+  window.PortfolioModules.initContactForm = initContactForm;
+  window.PortfolioModules.initSectionPointerEffects = initSectionPointerEffects;
+  window.PortfolioModules.initCustomCursor = initCustomCursor;
+  window.PortfolioModules.initReveal = initReveal;
+  window.PortfolioModules.initLoadAnimation = initLoadAnimation;
+})();

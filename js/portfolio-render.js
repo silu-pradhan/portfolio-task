@@ -1,28 +1,31 @@
-import { getSkillIcon, skillIcons } from "./portfolio-icons.js";
+(function () {
+  window.PortfolioModules = window.PortfolioModules || {};
+  const getSkillIcon = window.PortfolioModules.getSkillIcon;
+  const skillIcons = window.PortfolioModules.skillIcons;
 
-export function escapeHtml(value) {
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
-
-export function validateForm(payload) {
-  if (!payload.name.trim() || !payload.email.trim() || !payload.subject.trim() || !payload.message.trim()) {
-    return "Please fill in all fields.";
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
   }
 
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailPattern.test(payload.email)) {
-    return "Please enter a valid email address.";
+  function validateForm(payload) {
+    if (!payload.name.trim() || !payload.email.trim() || !payload.subject.trim() || !payload.message.trim()) {
+      return "Please fill in all fields.";
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(payload.email)) {
+      return "Please enter a valid email address.";
+    }
+
+    return "";
   }
 
-  return "";
-}
-
-export function renderPortfolio(dom, data, onRendered) {
+  function renderPortfolio(dom, data, onRendered) {
   const { profile, stats, projects, skills } = data;
 
   dom.brandName.textContent = profile.name;
@@ -90,4 +93,9 @@ export function renderPortfolio(dom, data, onRendered) {
   if (typeof onRendered === "function") {
     onRendered();
   }
-}
+  }
+
+  window.PortfolioModules.escapeHtml = escapeHtml;
+  window.PortfolioModules.validateForm = validateForm;
+  window.PortfolioModules.renderPortfolio = renderPortfolio;
+})();

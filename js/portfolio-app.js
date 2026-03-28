@@ -1,23 +1,18 @@
-import { getPortfolioDom } from "./portfolio-dom.js";
-import {
-  initContactForm,
-  initCustomCursor,
-  initLoadAnimation,
-  initNavigation,
-  initReveal,
-  initSectionPointerEffects
-} from "./portfolio-interactions.js";
-import { renderPortfolio } from "./portfolio-render.js";
+(function () {
+  window.PortfolioModules = window.PortfolioModules || {};
 
-export function initPortfolioApp() {
-  const store = window.PortfolioStore;
-  const data = store.getData();
-  const dom = getPortfolioDom();
+  function initPortfolioApp() {
+    const store = window.PortfolioStore;
+    const data = store.getData();
+    const dom = window.PortfolioModules.getPortfolioDom();
 
-  renderPortfolio(dom, data, initReveal);
-  initNavigation(dom);
-  initContactForm(dom, store);
-  initSectionPointerEffects();
-  initCustomCursor(dom);
-  initLoadAnimation();
-}
+    window.PortfolioModules.renderPortfolio(dom, data, window.PortfolioModules.initReveal);
+    window.PortfolioModules.initNavigation(dom);
+    window.PortfolioModules.initContactForm(dom, store);
+    window.PortfolioModules.initSectionPointerEffects();
+    window.PortfolioModules.initCustomCursor(dom);
+    window.PortfolioModules.initLoadAnimation();
+  }
+
+  window.PortfolioModules.initPortfolioApp = initPortfolioApp;
+})();
