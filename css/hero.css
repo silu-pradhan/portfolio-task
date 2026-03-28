@@ -35,8 +35,8 @@
 }
 
 body.animations-enabled .hero-copy > * {
-  opacity: 0;
-  transform: translateY(28px);
+  opacity: 1;
+  transform: none;
 }
 
 .hero-actions {
@@ -46,36 +46,12 @@ body.animations-enabled .hero-copy > * {
   margin: 32px 0;
 }
 
-.hero-metrics {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.metric-card,
 .profile-card {
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(14px);
   box-shadow: var(--shadow);
-}
-
-.metric-card {
-  padding: 18px;
-}
-
-.metric-value {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 1.6rem;
-  font-weight: 800;
-  font-family: "Syne", sans-serif;
-}
-
-.metric-label {
-  color: #bfd0e6;
-  font-size: 0.92rem;
 }
 
 .hero-card {
@@ -85,8 +61,8 @@ body.animations-enabled .hero-copy > * {
 }
 
 body.animations-enabled .hero-card {
-  opacity: 0;
-  transform: translateY(34px) scale(0.96);
+  opacity: 1;
+  transform: none;
 }
 
 .profile-card {

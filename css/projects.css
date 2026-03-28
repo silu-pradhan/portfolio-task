@@ -44,7 +44,7 @@
 .project-card:hover {
   transform: translateY(-6px);
   border-color: rgba(29, 78, 216, 0.2);
-  box-shadow: 0 20px 36px rgba(29, 78, 216, 0.1);
+  box-shadow: 0 20px 36px rgba(29, 78, 216, 0.18);
 }
 
 .project-card:hover::before {
@@ -82,10 +82,11 @@
 .project-card h3 {
   margin: 0 0 10px;
   font-size: 1.45rem;
+  color: #f8fbff;
 }
 
 .project-copy {
-  color: var(--muted);
+  color: #dfe7f3;
   line-height: 1.75;
 }
 
@@ -107,6 +108,7 @@
 .project-link {
   font-weight: 700;
   color: #7edfff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.18);
 }
 
 .project-card h3,

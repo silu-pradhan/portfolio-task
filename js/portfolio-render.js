@@ -25,16 +25,11 @@
 
   function renderPortfolio(dom, data, onRendered) {
     const profile = data && data.profile ? data.profile : {};
-    const strengths = Array.isArray(data && data.strengths) ? data.strengths : [];
     const projects = Array.isArray(data && data.projects) ? data.projects : [];
     const skills = Array.isArray(data && data.skills) ? data.skills : [];
     const socials = profile.socials && typeof profile.socials === "object" ? profile.socials : {};
     const getSkillIcon = window.PortfolioModules.getSkillIcon || function () { return ""; };
     const skillIcons = window.PortfolioModules.skillIcons || {};
-    const heroHighlights = strengths.slice(0, 3).map((item, index) => ({
-      value: `0${index + 1}`,
-      label: item
-    }));
 
     if (dom.brandName) {
       dom.brandName.textContent = profile.name || "Santanu Pradhan";
@@ -52,20 +47,10 @@
       dom.heroDescription.textContent = profile.heroDescription || "";
     }
 
-    if (dom.heroStats) {
-      dom.heroStats.innerHTML = heroHighlights.map((item) => `
-        <article class="metric-card">
-          <span class="metric-value">${escapeHtml(item.value)}</span>
-          <span class="metric-label">${escapeHtml(item.label)}</span>
-        </article>
-      `).join("");
-    }
-
     if (dom.projectsGrid) {
-      dom.projectsGrid.innerHTML = projects.map((project, index) => `
+      dom.projectsGrid.innerHTML = projects.map((project) => `
         <article class="project-card reveal">
           <div class="project-top">
-            <span class="project-index">0${index + 1}</span>
             <span class="contact-pill">${escapeHtml((project.tags || [])[0] || "Featured")}</span>
           </div>
           <h3>${escapeHtml(project.title || "")}</h3>

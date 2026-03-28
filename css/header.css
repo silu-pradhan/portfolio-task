@@ -18,8 +18,8 @@
 }
 
 body.animations-enabled .topbar {
-  opacity: 0;
-  transform: translateY(-18px);
+  opacity: 1;
+  transform: none;
 }
 
 .brand {

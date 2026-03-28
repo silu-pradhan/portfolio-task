@@ -95,6 +95,20 @@
     max-width: 100%;
   }
 
+  .hero h1 {
+    font-size: clamp(2.4rem, 12vw, 3.5rem);
+  }
+
+  .hero-text,
+  .project-copy,
+  .contact-item strong,
+  .social-link,
+  .contact-form span,
+  input,
+  textarea {
+    font-size: 0.98rem;
+  }
+
   .hero-card {
     min-height: auto;
   }
@@ -107,7 +121,6 @@
     min-height: 260px;
   }
 
-  .hero-metrics,
   .skills-grid,
   .projects-grid,
   .form-grid {

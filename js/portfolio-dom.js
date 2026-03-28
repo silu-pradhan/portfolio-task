@@ -7,7 +7,6 @@
       heroTag: document.getElementById("heroTag"),
       heroTitle: document.getElementById("heroTitle"),
       heroDescription: document.getElementById("heroDescription"),
-      heroStats: document.getElementById("heroStats"),
       projectsGrid: document.getElementById("projectsGrid"),
       skillsGrid: document.getElementById("skillsGrid"),
       contactInfo: document.getElementById("contactInfo"),
