@@ -31,7 +31,7 @@ Visitors can:
 - explore the projects section
 - send a message using the contact form
 
-The website uses browser `localStorage` to keep form submissions locally in the browser.
+All portfolio content is loaded directly from the JavaScript data file.
 
 ---
 
@@ -52,13 +52,13 @@ The visitor opens the portfolio website and sees:
 
 1. The visitor fills in the contact form.
 2. The form validates the inputs.
-3. The message is saved in browser `localStorage`.
+3. The website opens the user's email app using `mailto:`.
 4. A success message is shown to the user.
 
 ### Data handling
 
-The portfolio content is loaded from JavaScript data.  
-Contact form submissions are saved in browser `localStorage`.
+The portfolio content is loaded from the static JavaScript data file.  
+The project does not depend on browser `localStorage`.
 
 Important note:
 
@@ -138,7 +138,7 @@ New project/
 ### JavaScript
 
 - `data.js`  
-  Stores default portfolio data and localStorage functions
+  Stores the static portfolio data
 
 - `main.js`  
   Main entry file
@@ -170,7 +170,7 @@ New project/
 - Smooth section reveal animations
 - Creative background motion
 - Contact form validation
-- LocalStorage-based contact message saving
+- Static JavaScript-based portfolio content
 
 ---
 
@@ -191,4 +191,3 @@ in a browser.
 - Add project thumbnails and live demo links
 - Add downloadable resume section
 - Add real contact API integration
-
