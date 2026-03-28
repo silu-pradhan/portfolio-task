@@ -22,6 +22,10 @@
         window.PortfolioModules.initContactForm(dom, store);
       }
 
+      if (typeof window.PortfolioModules.initFormPopup === "function") {
+        window.PortfolioModules.initFormPopup(dom);
+      }
+
       if (typeof window.PortfolioModules.initSectionPointerEffects === "function") {
         window.PortfolioModules.initSectionPointerEffects();
       }

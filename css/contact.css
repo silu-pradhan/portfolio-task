@@ -106,3 +106,78 @@ textarea:focus {
 .form-status.error {
   color: #d84961;
 }
+
+.form-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.form-popup.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.form-popup-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 10, 20, 0.7);
+  backdrop-filter: blur(6px);
+}
+
+.form-popup-card {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 420px);
+  padding: 28px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(10, 22, 37, 0.96), rgba(7, 17, 30, 0.98));
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
+  text-align: center;
+}
+
+.form-popup-card h3 {
+  margin: 0 0 10px;
+  color: #f8fbff;
+  font-size: 1.5rem;
+}
+
+.form-popup-card p {
+  margin: 0 0 22px;
+  color: #d7dfec;
+  line-height: 1.7;
+}
+
+.form-popup-icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(86, 209, 255, 0.2), rgba(255, 173, 91, 0.22));
+  color: #f8fbff;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.form-popup-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8fbff;
+  font-size: 1.35rem;
+  line-height: 1;
+}

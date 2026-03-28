@@ -2,6 +2,50 @@
   window.PortfolioModules = window.PortfolioModules || {};
   const validateForm = window.PortfolioModules.validateForm;
 
+  function openFormPopup(dom) {
+    if (!dom.formPopup) {
+      return;
+    }
+
+    dom.formPopup.classList.add("is-open");
+    dom.formPopup.setAttribute("aria-hidden", "false");
+  }
+
+  function closeFormPopup(dom) {
+    if (!dom.formPopup) {
+      return;
+    }
+
+    dom.formPopup.classList.remove("is-open");
+    dom.formPopup.setAttribute("aria-hidden", "true");
+  }
+
+  function initFormPopup(dom) {
+    if (!dom.formPopup) {
+      return;
+    }
+
+    const closePopup = () => closeFormPopup(dom);
+
+    if (dom.formPopupClose) {
+      dom.formPopupClose.addEventListener("click", closePopup);
+    }
+
+    if (dom.formPopupAction) {
+      dom.formPopupAction.addEventListener("click", closePopup);
+    }
+
+    dom.formPopup.querySelectorAll("[data-popup-close]").forEach((item) => {
+      item.addEventListener("click", closePopup);
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closePopup();
+      }
+    });
+  }
+
   function initNavigation(dom) {
     if (!dom.menuToggle || !dom.siteNav) {
       return;
@@ -18,12 +62,42 @@
     });
   }
 
+  async function submitContactForm(recipientEmail, payload) {
+    const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(recipientEmail)}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        name: payload.name,
+        email: payload.email,
+        subject: payload.subject,
+        message: payload.message,
+        _subject: `Portfolio Contact: ${payload.subject}`
+      })
+    });
+
+    let result = {};
+    try {
+      result = await response.json();
+    } catch (error) {
+      result = {};
+    }
+
+    if (!response.ok) {
+      throw new Error(result.message || "Unable to send the message right now.");
+    }
+
+    return result;
+  }
+
   function initContactForm(dom, store) {
     if (!dom.form || !dom.formStatus) {
       return;
     }
 
-    dom.form.addEventListener("submit", (event) => {
+    dom.form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
     const formData = new FormData(dom.form);
@@ -44,17 +118,28 @@
     }
 
     const recipientEmail = store.getData().profile.email;
-    store.addMessage(payload);
+    const submitButton = dom.form.querySelector('button[type="submit"]');
 
-    const mailSubject = encodeURIComponent(payload.subject);
-    const mailBody = encodeURIComponent(
-      `Name: ${payload.name}\nEmail: ${payload.email}\n\nMessage:\n${payload.message}`
-    );
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+    }
 
-    window.location.href = `mailto:${recipientEmail}?subject=${mailSubject}&body=${mailBody}`;
-    dom.form.reset();
-    dom.formStatus.textContent = "Your email app has been opened with the message addressed to Santanu Pradhan.";
-    dom.formStatus.classList.add("success");
+    try {
+      await submitContactForm(recipientEmail, payload);
+      dom.form.reset();
+      dom.formStatus.textContent = "";
+      dom.formStatus.classList.remove("success", "error");
+      openFormPopup(dom);
+    } catch (submitError) {
+      dom.formStatus.textContent = submitError.message || "Unable to send the message right now.";
+      dom.formStatus.classList.add("error");
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = "Send Message";
+      }
+    }
     });
   }
 
@@ -197,6 +282,7 @@
 
   window.PortfolioModules.initNavigation = initNavigation;
   window.PortfolioModules.initContactForm = initContactForm;
+  window.PortfolioModules.initFormPopup = initFormPopup;
   window.PortfolioModules.initSectionPointerEffects = initSectionPointerEffects;
   window.PortfolioModules.initCustomCursor = initCustomCursor;
   window.PortfolioModules.initReveal = initReveal;
