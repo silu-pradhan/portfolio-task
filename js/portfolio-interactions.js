@@ -33,9 +33,17 @@ export function initContactForm(dom, store) {
       return;
     }
 
+    const recipientEmail = store.getData().profile.email;
     store.addMessage(payload);
+
+    const mailSubject = encodeURIComponent(payload.subject);
+    const mailBody = encodeURIComponent(
+      `Name: ${payload.name}\nEmail: ${payload.email}\n\nMessage:\n${payload.message}`
+    );
+
+    window.location.href = `mailto:${recipientEmail}?subject=${mailSubject}&body=${mailBody}`;
     dom.form.reset();
-    dom.formStatus.textContent = "Message sent successfully. It is now visible in the admin page.";
+    dom.formStatus.textContent = "Your email app has been opened with the message addressed to Santanu Pradhan.";
     dom.formStatus.classList.add("success");
   });
 }
@@ -94,8 +102,14 @@ export function initCustomCursor(dom) {
   });
 
   document.querySelectorAll("a, button, input, textarea, .skill-card, .project-card").forEach((item) => {
-    item.addEventListener("pointerenter", () => dom.cursorRing.classList.add("active"));
-    item.addEventListener("pointerleave", () => dom.cursorRing.classList.remove("active"));
+    item.addEventListener("pointerenter", () => {
+      dom.cursorRing.classList.add("active");
+      dom.cursorDot.classList.add("active");
+    });
+    item.addEventListener("pointerleave", () => {
+      dom.cursorRing.classList.remove("active");
+      dom.cursorDot.classList.remove("active");
+    });
   });
 
   let lastScrollY = window.scrollY;

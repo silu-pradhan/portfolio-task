@@ -2,7 +2,7 @@
   const STORAGE_KEY = "portfolio-pro-data";
 
   const defaultData = {
-    version: 3,
+    version: 4,
     profile: {
       name: "Santanu Pradhan",
       roleTag: "Full Stack Developer",
@@ -104,9 +104,14 @@
           heroDescription: defaultData.profile.heroDescription,
           aboutHeading: defaultData.profile.aboutHeading,
           aboutText: defaultData.profile.aboutText,
-          experience: defaultData.profile.experience
+          email: defaultData.profile.email,
+          phone: defaultData.profile.phone,
+          location: defaultData.profile.location,
+          experience: defaultData.profile.experience,
+          socials: clone(defaultData.profile.socials)
         };
         merged.skills = clone(defaultData.skills);
+        merged.projects = clone(defaultData.projects);
         localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
       }
 

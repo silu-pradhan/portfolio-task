@@ -2,86 +2,68 @@
 
 ## Project Overview
 
-This project is a professional portfolio website built with:
+This project is a personal portfolio website built with:
 
 - HTML
 - CSS
 - JavaScript
 
-The website is designed to present a personal portfolio in a clean and modern way. It includes:
+It is designed to present a portfolio in a clean and professional way.  
+The website includes:
 
 - Home section
 - Skills section
 - Projects section
 - Contact section
-- Admin login page
-- Admin dashboard
 
-The portfolio is responsive, so it works on desktop, tablet, and mobile devices.
+The portfolio is responsive, so it works across desktop, tablet, and mobile devices.
+
+---
+
+## Simple Project Explanation
+
+This is a front-end portfolio website for showing personal details, technical skills, projects, and contact information.
+
+Visitors can:
+
+- view the home section
+- see the skills section
+- explore the projects section
+- send a message using the contact form
+
+The website uses browser `localStorage` to keep form submissions locally in the browser.
 
 ---
 
 ## Project System Design
 
-This project is a frontend-based portfolio system.
+This project is a static front-end portfolio.
 
-### Main user side
+### Portfolio side
 
-The main portfolio page is for visitors.  
-Visitors can:
+The visitor opens the portfolio website and sees:
 
-- see profile information
-- view skills
-- view projects
-- send a message through the contact form
+- profile information
+- skills
+- projects
+- contact form
 
-### Admin side
+### Contact flow
 
-The admin side is protected by a login page.  
-Only the admin can:
+1. The visitor fills in the contact form.
+2. The form validates the inputs.
+3. The message is saved in browser `localStorage`.
+4. A success message is shown to the user.
 
-- log in with username and password
-- update portfolio content
-- add, edit, or remove skills
-- add, edit, or remove projects
-- view contact form messages
+### Data handling
 
-### Data storage
-
-This project does not use a database or backend server.  
-All data is stored in the browser using `localStorage`.
-
-That means:
-
-- portfolio data is saved in the browser
-- admin login session is saved in the browser
-- contact messages are saved in the browser
+The portfolio content is loaded from JavaScript data.  
+Contact form submissions are saved in browser `localStorage`.
 
 Important note:
 
-This is good for practice projects, demos, and local use.  
-For real production use, a backend and database should be added.
-
----
-
-## How The Project Works
-
-### Portfolio flow
-
-1. The visitor opens the portfolio website.
-2. The website loads the portfolio data from `localStorage`.
-3. Skills, projects, and profile details are shown on the page.
-4. If a visitor sends a message from the contact form, the message is saved in `localStorage`.
-5. The admin can later see that message in the admin dashboard.
-
-### Admin flow
-
-1. The admin opens the login page.
-2. The admin enters the correct username and password.
-3. If the credentials are correct, login state is saved in `localStorage`.
-4. The admin dashboard opens.
-5. The admin can update the portfolio content.
-6. Changes are saved in `localStorage` and reflected on the portfolio page.
+This project does not use a backend or database.  
+It is suitable for personal portfolio demos, static hosting, and local use.
 
 ---
 
@@ -89,31 +71,24 @@ For real production use, a backend and database should be added.
 
 ```text
 New project/
-├── admin.html
 ├── index.html
-├── login.html
 ├── README.md
 ├── assets/
 │   ├── .gitkeep
 │   ├── profile-photo.jpeg
 │   └── profile-portrait.svg
 ├── css/
-│   ├── admin.css
 │   ├── animations.css
 │   ├── base.css
 │   ├── contact.css
 │   ├── header.css
 │   ├── hero.css
-│   ├── login.css
 │   ├── projects.css
 │   ├── responsive.css
 │   ├── skills.css
 │   └── style.css
 └── js/
-    ├── admin.js
-    ├── auth.js
     ├── data.js
-    ├── login.js
     ├── main.js
     ├── portfolio-app.js
     ├── portfolio-dom.js
@@ -126,24 +101,18 @@ New project/
 
 ## Important Files
 
-### HTML files
+### HTML
 
 - `index.html`  
   Main portfolio page
 
-- `login.html`  
-  Admin login page
-
-- `admin.html`  
-  Admin dashboard
-
-### CSS files
+### CSS
 
 - `style.css`  
   Main CSS entry file
 
 - `base.css`  
-  Global styles, colors, layout base
+  Global styles, theme colors, layout base
 
 - `header.css`  
   Navbar styles
@@ -161,61 +130,33 @@ New project/
   Contact section styles
 
 - `animations.css`  
-  Animations and transitions
+  Animation and motion styles
 
 - `responsive.css`  
-  Mobile and tablet responsive design
+  Responsive behavior for different screen sizes
 
-- `admin.css`  
-  Admin dashboard styles
-
-- `login.css`  
-  Admin login page styles
-
-### JavaScript files
+### JavaScript
 
 - `data.js`  
-  Default portfolio data and localStorage handling
-
-- `auth.js`  
-  Admin login credentials and auth checking
-
-- `login.js`  
-  Login form logic
-
-- `admin.js`  
-  Admin dashboard logic
+  Stores default portfolio data and localStorage functions
 
 - `main.js`  
-  Main portfolio entry file
+  Main entry file
 
 - `portfolio-app.js`  
-  Starts the portfolio app
+  Starts the portfolio application
 
 - `portfolio-dom.js`  
-  Handles DOM element selection
+  Selects and manages DOM elements
 
 - `portfolio-icons.js`  
   Skill icons
 
 - `portfolio-interactions.js`  
-  Cursor effects, reveal effects, navigation, and interactions
+  Navigation, cursor, reveal, and form interactions
 
 - `portfolio-render.js`  
-  Renders portfolio data into the page
-
----
-
-## Admin Credentials
-
-Current admin login credentials:
-
-- Username: `admin`
-- Password: `admin123`
-
-These credentials are defined in:
-
-- `js/auth.js`
+  Renders content into the page
 
 ---
 
@@ -226,39 +167,20 @@ These credentials are defined in:
 - Skills with icons
 - Animated project cards
 - Custom cursor effect
-- Smooth scroll reveal animation
-- Contact form with validation
-- Admin login protection
-- Admin dashboard for editing content
-- LocalStorage-based data saving
+- Smooth section reveal animations
+- Creative background motion
+- Contact form validation
+- LocalStorage-based contact message saving
 
 ---
 
-## Simple Explanation Of The Project
-
-This project is a personal portfolio website where people can see your profile, skills, and projects.
-
-It also has an admin system. The admin can log in, change portfolio content, and see the messages submitted from the contact form.
-
-The whole project is made using only frontend technologies, so it is easy to run locally without backend setup.
-
----
-
-## How To Open The Project
-
-### Open portfolio
+## How To Run
 
 Open:
 
 - `index.html`
 
-### Open admin login
-
-Open:
-
-- `login.html`
-
-Then log in with the admin username and password.
+in a browser.
 
 ---
 
@@ -266,7 +188,7 @@ Then log in with the admin username and password.
 
 - Add backend and database
 - Add real email sending for contact form
-- Add image upload from admin panel
-- Add real authentication with encrypted passwords
-- Add project thumbnails and live links
+- Add project thumbnails and live demo links
+- Add downloadable resume section
+- Add real contact API integration
 
